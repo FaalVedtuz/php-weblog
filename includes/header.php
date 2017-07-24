@@ -1,8 +1,29 @@
 <?php
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 
 if(!isset($_SESSION["user"])){
     $_SESSION["user"] = "Guest";
+}
+function checkUser(){
+    if($_SESSION["user"]!== "Guest"){
+        return "Logout";
+    }else{
+        return "Login";
+    }
+}
+function sessionLink(){
+    $checkSession = checkUser();
+    if($checkSession === "Logout"){
+        logout();
+        return "index.php";
+    }else{
+        return "index.php";
+    }
+}
+function logout(){
+    session_destroy();
 }
 
 ?>
@@ -18,7 +39,7 @@ if(!isset($_SESSION["user"])){
 
 <body>
     <nav>
-        <a href="#">Logout</a>
+        <a href="<?php echo sessionLink(); ?>"><?php echo checkUser(); ?></a>
         <a href="register.php">Register</a>
         <strong><?php echo $_SESSION["user"] ?></strong>
     </nav>

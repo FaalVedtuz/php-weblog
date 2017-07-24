@@ -8,7 +8,6 @@
    }else{
        $msg = "Username or password did not match";
    }
-    
 ?>
 
 <!-- html goes here -->

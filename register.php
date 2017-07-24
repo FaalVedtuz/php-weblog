@@ -3,7 +3,7 @@
 ?>
 
     <p>Sample Registration</p>
-    <form method="POST" action="registrationsuccess.php">
+    <form method="POST" action="<?php echo htmlspecialchars(registrationsuccess.php);?>">
         <label for="fname">First name: </label><input type="text" name="fname" required><br />
         <label for="lname">Last name: </label><input type="text" name="lname" required><br />
         <label for="email">Email: </label><input type="email" name="email" required>
